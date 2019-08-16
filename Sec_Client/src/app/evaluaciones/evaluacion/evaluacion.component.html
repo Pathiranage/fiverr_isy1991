@@ -1,0 +1,193 @@
+<div class="animated fadeIn fast">
+
+</div>
+<div class="btn-group">
+    <button [routerLink]="['/evaluaciones/evaluacion/1']" class="btn btn-light" routerLinkActive="active"> Evaluación
+        del producto
+    </button>&nbsp;
+    <button [routerLink]="['/evaluaciones/historico/1']" class="btn btn-light" type="button" routerLinkActive="active">
+        Histórico
+    </button>&nbsp;
+    <button type="button" class="btn btn-light" routerLinkActive="active" (click)="generarInforme(evaluacion.id)">
+        Generar Informe
+    </button>&nbsp;
+</div>
+
+<br/><br/><br/>
+
+<h2 align="center">{{nombre}}</h2>
+
+<div class="animated fadeIn fast">
+
+    <br/>
+    <div class="col-sm-4">
+        Seleccione una fecha sobre la evaluación:
+         <br>
+        <select lass="form-control" id="exampleFormControlSelect1" (change)="loadData()" [(ngModel)]="selectedEval"
+                name="eval"><!--(change)="loadData()"-->
+            <option *ngFor="let eval of evaluaciones"
+                    [value]="eval.id">{{eval.createAt | date: 'M/d/yy, h:mm a'}}</option>
+        </select>
+    </div>
+    <div class="row">
+
+        <div class="col">
+            <br/><br/><br/><br/>
+            <table class="table table-bordered">
+                <thead class="p-3 mb-2 bg-success text-white">
+                <tr>
+                    <th scope="col">Version</th>
+                    <th scope="col">Fecha de la evaluación</th>
+                    <th scope="col" width="50" height="50">CS</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="p-3 mb-2 bg-light text-dark">
+                    <td>{{version}}</td>
+                    <td>{{date | date: 'M/d/yy, h:mm a'}}</td>
+                    <td align="center" [bgColor]="getBgColor(value)" class="valor" width="50" height="50"
+                      ><font [color]="getTextColorCaracteristica(value)">{{value}}</font></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <div class="col">
+            <br/><br/><br/>
+            <div>
+                <div>
+                    <div style="display: block">
+                        <canvas baseChart
+                                [datasets]="radarChartData"
+                                [options]="radarChartOptions"
+                                [colors]="radarChartColors"
+                                [labels]="radarChartLabels"
+                                [chartType]="radarChartType">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/><br/>
+    <div class="row">
+
+        <div class="col">
+
+            <table class="table table-bordered" align="center" style="width: 100%">
+                <thead class="p-3 mb-2 bg-success text-white">
+                <tr>
+                    <th scope="col">Caracteristicas/Propiedades</th>
+                    <th scope="col" width="50" height="50"> Valor</th>
+                </tr>
+                </thead>
+
+                <tbody *ngFor="let chara of charasteristics">
+                <tr>
+
+                    <td style="width: 90%"><input type="checkbox" (click)="showGraph(chara.name)"
+                                                  [id]="chara.name"> {{chara.name}}</td>
+
+                    <td align="center" class="valor" height="50" style="width: 10%"
+                        [bgColor]="getBgColor(chara.value)"><font [color]="getTextColorCaracteristica(chara.value)">{{chara.value}}</font>
+                      </td>
+
+                </tr>
+                <ng-container *ngIf="showProperties(chara.name)">
+                    <tr *ngFor="let prop of chara.properties" [id]="'tr_'+chara.name">
+                        <td style="width: 90%">{{prop.name}}</td>
+                        <td align="center" class="valor" [bgColor]="getBgColorForProp(prop.value)"><font [color]="getTextColorPropiedad(prop.value)">{{prop.value}}</font></td>
+                    </tr>
+                </ng-container>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col">
+
+
+            <div *ngIf="mostrarcump">
+                <h5 align="center">Cumplimiento</h5>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartDataCump"
+                            [labels]="barChartLabelsCump"
+                            [options]="barChartOptionsCump"
+                            [plugins]="barChartPlugins"
+                            [colors]="barChartColorsCump"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+
+            <div *ngIf="mostrarconf">
+                <h5 align="center">Confidencialidad</h5>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartDataConf"
+                            [labels]="barChartLabelsConf"
+                            [options]="barChartOptionsConf"
+                            [plugins]="barChartPlugins"
+                            [colors]="barChartColorsConf"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+
+            <div *ngIf="mostrartraz">
+                <h5 align="center">Trazabilidad</h5>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartDataTraz"
+                            [labels]="barChartLabelsTraz"
+                            [options]="barChartOptionsTraza"
+                            [plugins]="barChartPlugins"
+                            [colors]="barChartColorsTraz"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+
+            <div *ngIf="mostrardisp">
+                <h5 align="center">Disponibilidad</h5>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartDataDisp"
+                            [labels]="barChartLabelsDisp"
+                            [options]="barChartOptionsDisp"
+                            [plugins]="barChartPlugins"
+                            [colors]="barChartColorsDisp"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+
+            <div *ngIf="mostrarrecu">
+                <h5 align="center">Recuperabilidad</h5>
+                <div style="display: block">
+                    <canvas baseChart
+                            [datasets]="barChartDataRec"
+                            [labels]="barChartLabelsRec"
+                            [options]="barChartOptionsRecu"
+                            [plugins]="barChartPlugins"
+                            [colors]="barChartColorsRec"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                    </canvas>
+                </div>
+            </div>
+
+        </div>
+        <br/><br/>
+    </div>
+
+    <br/><br/>
+
+</div>

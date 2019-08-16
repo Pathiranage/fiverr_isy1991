@@ -1,0 +1,70 @@
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+  <div class="card-header bg-success text-white" *ngIf="!producto.id"><h5>{{titulo_crear}}</h5></div>
+
+  <div class="card-header bg-success text-white" *ngIf="producto.id"><h5>{{titulo_editar}}</h5></div>
+
+
+  <div class="card-body card bg-light mb-3 p-3">
+
+      <h5> Datos del producto: </h5>
+      <br/>
+      <form>
+            <div class="form-group row">
+              <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" [(ngModel)]="producto.nombre" name="nombre" id="nombre">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="empresa" class="col-form-label col-sm-2">Empresa</label>
+                <div class="col-sm-6">
+                  <select id="empresa" [compareWith]="compararEmpresa" class="form-control" [(ngModel)]="producto.empresa" name="empresa" style="width:500px;">
+                    <option *ngFor="let empresa of empresas" [ngValue]="empresa">{{empresa.nombre}}</option>
+                  </select>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- This has to be removed. -->
+
+
+            <div class="form-group row">
+              <label  class="col-form-label col-sm-2">Versión</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" name="version" [(ngModel)]="producto.version">
+              </div>
+              <div class="col-sm-4">
+                <button  class="btn btn-light" (click)="addNewVersion()"> Añadir </button>
+              </div>
+            </div>
+
+          <!--    This is what needs to be done: -->
+             <div class="form-group row">
+               <label for="versiones" class="col-form-label col-sm-2">Versiones disponibles: </label>
+               <div class="col-sm-6">
+                 <div class="form-group">
+                   <select class="form-control" id="versiones" (change)="setVersion($event.target.value)">
+                      <option *ngFor="let version of producto.versiones">{{version.nombre}}</option>
+                  </select>
+                </div>
+               </div>
+             </div>
+
+
+            <div class="col-sm-6">
+              <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!producto.id else elseBlock">Crear producto</button>
+
+              <ng-template #elseBlock>
+                <button class="btn btn-primary" role="button" (click)='update()'>Editar producto</button>
+              </ng-template>
+            </div>
+      </form>
+</div>

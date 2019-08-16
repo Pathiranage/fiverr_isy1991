@@ -1,0 +1,50 @@
+<div class="animated fadeIn fast">
+
+  <div class="card-body text-secondary">
+
+
+    <br/>
+  	<div class="my-2 text-left">
+        <button  class="btn btn-light" type="button"  [routerLink]="['/productos/form']">Nuevo Producto...</button>
+      </div>
+  	<br/>
+
+
+	<br/>
+    <h4>Listado de productos</h4>
+	<br/>
+
+
+
+    <table class="table table-bordered table-striped" >
+      <thead class="p-3 mb-2 bg-success text-white">
+        <tr>
+          <th WIDTH="20" HEIGHT="10">Id</th>
+          <th WIDTH="50" HEIGHT="50">Nombre</th>
+          <th>Version más reciente</th>
+          <th WIDTH="50" HEIGHT="50">Empresa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos">
+          <td>{{ producto.id }}</td>
+          <td>{{ producto.nombre}}</td>
+          <td WIDTH="50"
+	    HEIGHT="50">
+
+        <ng-container *ngFor="let version of producto.versiones; last as isLast">
+        <span WIDTH="1" HEIGHT="1" *ngIf="isLast">{{version.nombre}}</span>
+        </ng-container>
+      </td>
+          <td>{{ producto.empresa.nombre }}</td>
+          <td  WIDTH="20" HEIGHT="20" class="p-3 mb-2 bg-white border border-white">
+            <img type="button" width="30" height="30" src="assets/img/editar.png" [routerLink]="['/productos/form', producto.id]">
+            &nbsp;&nbsp;&nbsp;
+            <img type="button" width="30" height="30" src="assets/img/eliminar.png" (click)="delete(producto)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

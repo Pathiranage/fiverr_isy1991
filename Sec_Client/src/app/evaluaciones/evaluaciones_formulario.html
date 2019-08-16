@@ -1,0 +1,47 @@
+
+
+  <div class="card-header bg-success text-white" *ngIf="!evaluacion.id"><h5>{{titulo_crear}}</h5></div>
+
+  <div class="card-header bg-success text-white" *ngIf="evaluacion.id"><h5>{{titulo_editar}}</h5></div>
+
+
+  <div class="card-body card bg-light mb-3 p-3">
+
+        <form>
+            <div class="form-group">
+                <label for="producto">Producto</label>
+                <select class="form-control" id="producto" (change)="setEmpresa()" required=""
+                        [(ngModel)]="evaluacion.product" name="product">
+                    <option *ngFor="let producto of productos" [value]="producto.id">{{producto.nombre}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" class="form-control" [(ngModel)]="evaluacion.empresa" name="empresa">
+            </div>
+            <div class="form-group">
+                <label for="version">Version</label>
+                <select class="form-control" id="version" [(ngModel)]="evaluacion.version" name="version">
+                    <option *ngFor="let version of versions" [value]="version.nombre">{{version.nombre}}</option>
+                </select>
+            </div>
+
+        <!-- Here is the code that you have to modify -->
+            <div>
+                <label>User asigned:</label>
+                <select class="form-control" id="user" [(ngModel)]="evaluacion.user" name="user">
+                    <option *ngFor="let user of users" [value]="user.id">{{user.nombre}}</option>
+                </select>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputCity">Fichero de evaluacion</label>
+                <input type="file" class="form-control" id="inputCity" name="fichero_evaluacion"
+                       (change)="onFileSelect($event)" placeholder="Añade fichero de evaluacion...">
+            </div>
+
+            <button type="submit" class="btn btn-primary" (click)="update()">Guardar</button>
+        </form>
+
+    </div>

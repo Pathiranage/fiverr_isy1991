@@ -1,0 +1,107 @@
+[33mcommit e2991c19b5086d42ee4fd4780ad5f456bf59b8aa[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/Evaluaciones_CRUD_V2[m[33m, [m[1;31morigin/Evaluaciones_CRUD[m[33m, [m[1;32mmaster[m[33m, [m[1;32mEvaluaciones_CRUD[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Mon Jun 3 16:53:54 2019 +0200
+
+    Versión estable, todo funcionando
+
+[33mcommit 1cd17932d54f8c296e75398a260b6365db2e1e3f[m[33m ([m[1;31morigin/Producto_CRUD[m[33m, [m[1;32mProducto_CRUD[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Thu May 23 13:15:35 2019 +0200
+
+    Versión añadida al modelo
+
+[33mcommit 6a578a01390c5b43f6f48849db766f572ca0cadd[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Wed May 22 17:07:50 2019 +0200
+
+    Actualizacion
+
+[33mcommit 5a91a269311d89671b63caac9de9b53dc58d4822[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Tue May 14 00:07:11 2019 +0200
+
+    Delete completo en todas las tablas
+
+[33mcommit e384ba931046c387920b6a18e5233b754334ff1c[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Thu May 9 20:44:53 2019 +0200
+
+    CRUD completo en servidor
+
+[33mcommit 68a91e3242bf2ba3001f6b7555d4df2a9201a0fc[m[33m ([m[1;31morigin/modificacion_cliente_empleado[m[33m, [m[1;31morigin/Empresa_Cliente[m[33m, [m[1;32mEmpresa_Cliente[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Thu May 9 19:06:15 2019 +0200
+
+    Productos estables en la base de datos.
+
+[33mcommit 6d2fdda47a122209a83bd24a24a6c7bf6b0e4b04[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Sat Apr 27 01:54:57 2019 +0200
+
+    Actualización servidor
+
+[33mcommit 1e55f5bff440c27ab5585debd7ee0dc9dac94b40[m[33m ([m[1;31morigin/Empresa_Producto[m[33m, [m[1;32mEmpresa_Producto[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Thu Mar 28 18:38:24 2019 +0100
+
+    CRUD de la empresa y cliente correspondiente a esa empresa.
+
+[33mcommit 8e06d6003b309687d0a8b103ad0f8594e4f1b3de[m[33m ([m[1;31morigin/Autenticación[m[33m, [m[1;32mAutenticación[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Mon Mar 25 17:20:12 2019 +0100
+
+    Permisos
+
+[33mcommit 0674bb7e7ece28087036310d6d64fe2e48aeb7ac[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Mon Mar 18 13:11:29 2019 +0100
+
+    Sistema de roles
+
+[33mcommit 2e638f09d87d0695f575727a0d29d0fa2158d3c9[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Sat Mar 16 12:34:36 2019 +0100
+
+    Introducción cors
+
+[33mcommit 2f0037f62de9e7a39665d25997e063dbc0bc3919[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Sat Mar 16 12:18:57 2019 +0100
+
+    Autenticación en el backend completada
+
+[33mcommit bcad39ffcf784b05774b7ab2e270e9828efbede2[m[33m ([m[1;31morigin/Autentificación[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Fri Mar 15 16:32:09 2019 +0100
+
+    Introducción de roles
+
+[33mcommit 965bc117f717b1162b9fc2f70603a1efa0341e0a[m[33m ([m[1;31morigin/Autenticacion_oauth[m[33m, [m[1;32mAutenticacion_oauth[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Fri Mar 8 17:52:52 2019 +0100
+
+    Modificación delete
+
+[33mcommit c690296c37fd748e786cbf5886b71641f07b77b3[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Thu Mar 7 20:33:34 2019 +0100
+
+    Creación clases entity
+
+[33mcommit b97e613e63a514d968bc9e89844cda14bd9f86d8[m[33m ([m[1;31morigin/Sprint-2[m[33m)[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Fri Mar 1 19:37:13 2019 +0100
+
+    Actualizacion rol Admin
+
+[33mcommit 80a71bda0d5d538b21a50a35ec326bd93da1b7db[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Mon Feb 25 21:11:17 2019 +0100
+
+    Población tabla Cliente
+
+[33mcommit c354d2d2f132751c9265ecb9275efc8f0975dd05[m
+Author: Enrique <32339088+Kikoenriko@users.noreply.github.com>
+Date:   Mon Feb 25 17:51:06 2019 +0100
+
+    Act MySQL
