@@ -24,8 +24,8 @@ public interface IProductoDao extends CrudRepository<Producto, Long> {
 	 */
 
 
-    @Query("SELECT MAX(e.nombre) FROM Version e JOIN e.producto p JOIN p.versiones version where p.id = :id_prod")
-    public Version findByIdVersion(@Param("id_prod") long id);
-
+	@Query("SELECT MAX(e.nombre) FROM Version e JOIN e.producto p JOIN p.versiones version where p.id = :id_prod")
+	public Version findByIdVersion(@Param("id_prod") long id);
+	
 }
 

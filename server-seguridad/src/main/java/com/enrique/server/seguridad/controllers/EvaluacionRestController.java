@@ -1,6 +1,9 @@
 package com.enrique.server.seguridad.controllers;
 
-import com.enrique.server.seguridad.models.entity.*;
+import com.enrique.server.seguridad.models.entity.Charateristics;
+import com.enrique.server.seguridad.models.entity.Evaluacion;
+import com.enrique.server.seguridad.models.entity.Macrocharacteristic;
+import com.enrique.server.seguridad.models.entity.Usuario;
 import com.enrique.server.seguridad.services.IEvaluacionService;
 import com.enrique.server.seguridad.services.IUsuarioService;
 import org.apache.commons.codec.binary.Base64;
@@ -17,7 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -190,39 +192,41 @@ public class EvaluacionRestController {
         List<Charateristics> charateristics = evaluacionService.charasteristicsByEvaluacionesId(id);
         return ResponseEntity.ok(charateristics);
     }
-
+    /*
     @GetMapping("/evaluaciones/{id}/informe")
     public ResponseEntity createInform(@PathVariable Long id) throws IOException {
 
-        //Cogemos la evaluacion
+    	//Cogemos la evaluacion
         Evaluacion evaluacion = evaluacionService.findById(id);
-
+        
         //Cogemos la macrocaracteristica
         Macrocharacteristic macrocharacteristic = this.evaluacionService.findMacrocharacteristicById(evaluacion.getMacrocharacteristic().getId());
-
+        
         //Cogemos el producto
         Producto producto = evaluacion.getProducto();
-
-
+        
+        
         //Cogemos la empresa
         Empresa empresa = producto.getEmpresa();
-
+        
         //Cogemos las caracteristicas
         List<Charateristics> caracteristicas = evaluacion.getMacrocharacteristic().getCharateristics();
-
+        
         //Cogemos las propiedades
         List<Properties> propiedadescump = caracteristicas.get(0).getProperties();
         List<Properties> propiedadesconf = caracteristicas.get(1).getProperties();
         List<Properties> propiedadestraz = caracteristicas.get(2).getProperties();
         List<Properties> propiedadesdisp = caracteristicas.get(3).getProperties();
         List<Properties> propiedadesrecup = caracteristicas.get(4).getProperties();
+        
 
-
-        //Informe informe = new Informe(evaluacion, macrocharacteristic, caracteristicas, empresa, producto, propiedadescump, propiedadesconf, propiedadestraz, propiedadesdisp, propiedadesrecup);
-        //informe.generarInformes();
+        
+		
+		//Informe informe = new Informe(evaluacion, macrocharacteristic, caracteristicas, empresa, producto, propiedadescump, propiedadesconf, propiedadestraz, propiedadesdisp, propiedadesrecup);
+		//informe.generarInformes();
 
 		
-        /*
+        
         for(int j=0; j<propiedadescump.size(); j++) {
         	System.out.println(propiedadescump.get(j).getName());
         	System.out.println(propiedadescump.get(j).getValue());
@@ -248,15 +252,15 @@ public class EvaluacionRestController {
         	System.out.println(propiedadesrecup.get(j).getValue());
         }
 
-        */
+        
         /*for(int i=0;i<caracteristicas.size();i++) {
         System.out.println(caracteristicas.get(i).getName());
         System.out.println(caracteristicas.get(i).getValue());
         }
         System.out.println(producto.getNombre());
         System.out.println(macrocharacteristic.getAcronym());
-    	System.out.println(id);*/
-        return ResponseEntity.ok(id);
+    	System.out.println(id);
+    	return ResponseEntity.ok(id);
     }
-
+*/
 }

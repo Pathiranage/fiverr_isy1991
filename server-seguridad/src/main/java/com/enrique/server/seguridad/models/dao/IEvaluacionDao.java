@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface IEvaluacionDao extends JpaRepository<Evaluacion, Long> {
 
-    @Query("SELECT DISTINCT e FROM Evaluacion e JOIN e.usuarios usuario JOIN usuario.evaluaciones evaluacion where usuario.id = :id_user")
-    public List<Evaluacion> findAllById(@Param("id_user") long id);
+	@Query("SELECT DISTINCT e FROM Evaluacion e JOIN e.usuarios usuario JOIN usuario.evaluaciones evaluacion where usuario.id = :id_user")
+	public List<Evaluacion> findAllById(@Param("id_user") long id);
 
 
-    List<Evaluacion> findAllByUsuarios_Id(Long id);
+	List<Evaluacion> findAllByUsuarios_Id(Long id);
 
 }

@@ -10,13 +10,13 @@ import java.util.List;
 
 public interface IUsuarioDao extends CrudRepository<Usuario, Long> {
 
-    public Usuario findByUsername(String username);
+	public Usuario findByUsername(String username);
 
-    @Query("select e from Usuario e where e.username=?1")
-    public Usuario findByUsername2(String username);
+	@Query("select e from Usuario e where e.username=?1")
+	public Usuario findByUsername2(String username);
 
-    public Rol findRolById(Long id);
-    //public List<Evaluacion> selectAllByIdUser(@Param("id_user")long id);
+	public Rol findRolById(Long id);
+	//public List<Evaluacion> selectAllByIdUser(@Param("id_user")long id);
 
-    List<Usuario> findAllByRoles_Nombre(String role);
+	List<Usuario> findAllByRoles_Nombre(String role);
 }

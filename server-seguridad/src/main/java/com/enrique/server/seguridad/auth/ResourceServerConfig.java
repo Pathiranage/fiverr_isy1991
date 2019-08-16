@@ -19,49 +19,48 @@ import java.util.Arrays;
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/home",
-                "/api/usuarios",
-                "/api/usuarios-by-role",
-                "/api/empresas",
-                "/api/empresas/**",
-                "/api/empresas/{id}",
-                "/api/versiones/**",
-                "/api/evaluaciones",
-                "/api/evaluaciones/**")
-                .permitAll()
-                /*.antMatchers(HttpMethod.GET, "/api/usuarios").hasAnyRole("USER", "ADMIN")*/
-                .antMatchers(HttpMethod.POST, "/api/empresas", "/api/empresas/**").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/empresas", "/api/empresas/**").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/api/usuarios", "/api/empresas/**").permitAll()
-                .antMatchers(HttpMethod.PUT, "/api/empresas", "/api/empresas/**").permitAll()
-                .antMatchers(HttpMethod.PUT, "/api/usuarios", "/api/usuarios/**").permitAll()
-                .antMatchers("/api/productos/**").permitAll()
-                /*.antMatchers("/api/clientes/**").hasRole("ADMIN")*/
-                .anyRequest().authenticated()
-                .and().cors().configurationSource(corsConfigurationSource());
-    }
+	@Override
+	public void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/home",
+				"/api/usuarios",
+				"/api/empresas",
+				"/api/empresas/**",
+				"/api/empresas/{id}",
+				"/api/versiones/**",
+				"/api/evaluaciones",
+				"/api/evaluaciones/**")
+				.permitAll()
+				/*.antMatchers(HttpMethod.GET, "/api/usuarios").hasAnyRole("USER", "ADMIN")*/
+				.antMatchers(HttpMethod.POST, "/api/empresas", "/api/empresas/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/empresas", "/api/empresas/**").permitAll()
+				.antMatchers(HttpMethod.DELETE, "/api/usuarios", "/api/empresas/**").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/empresas", "/api/empresas/**").permitAll()
+				.antMatchers(HttpMethod.PUT, "/api/usuarios", "/api/usuarios/**").permitAll()
+				.antMatchers("/api/productos/**").permitAll()
+				/*.antMatchers("/api/clientes/**").hasRole("ADMIN")*/
+				.anyRequest().authenticated()
+				.and().cors().configurationSource(corsConfigurationSource());
+	}
 
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowCredentials(true);
-        config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
+	@Bean
+	public CorsConfigurationSource corsConfigurationSource() {
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+		config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+		config.setAllowCredentials(true);
+		config.setAllowedHeaders(Arrays.asList("Content-Type", "Authorization"));
 
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", config);
-        return source;
-    }
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", config);
+		return source;
+	}
 
-    @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter() {
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
-        bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return bean;
-    }
+	@Bean
+	public FilterRegistrationBean<CorsFilter> corsFilter() {
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		return bean;
+	}
 
-
+	
 }

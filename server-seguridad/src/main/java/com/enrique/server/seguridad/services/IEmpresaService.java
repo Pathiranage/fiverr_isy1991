@@ -15,7 +15,7 @@ public interface IEmpresaService {
     public void delete(Long id);
 
     public Empresa findById(Long id);
-
+	
     public Empleado findEmpleadoById(Long id);
 
 }

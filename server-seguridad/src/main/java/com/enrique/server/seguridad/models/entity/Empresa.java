@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 @Entity
 
 @Table(name = "empresas")
@@ -166,6 +167,7 @@ public class Empresa implements Serializable {
         this.productos = productos;
 
     }
+
 
 
 }

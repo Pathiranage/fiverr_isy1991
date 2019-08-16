@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IVersionDao extends CrudRepository<Version, Long> {
-    List<Version> findByProductoId(@Param("id") Long id);
+ List<Version> findByProductoId(@Param("id") Long id);
 }
 
 

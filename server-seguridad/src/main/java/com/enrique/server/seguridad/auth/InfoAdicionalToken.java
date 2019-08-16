@@ -15,26 +15,26 @@ import java.util.Map;
 @Component
 public class InfoAdicionalToken implements TokenEnhancer {
 
-    @Autowired
-    private IUsuarioService usuarioService;
+	@Autowired
+	private IUsuarioService usuarioService;
 
-    @Override
-    public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
+	@Override
+	public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 
-        Usuario usuario = usuarioService.findByUsername(authentication.getName());
+		Usuario usuario = usuarioService.findByUsername(authentication.getName());
 
 
-        Map<String, Object> info = new HashMap<>();
-        info.put("info_adicional", "Prueba : ".concat(authentication.getName()));
+		Map<String, Object> info = new HashMap<>();
+		info.put("info_adicional", "Prueba : ".concat(authentication.getName()));
 
-        info.put("nombre", usuario.getNombre());
-        info.put("apellido", usuario.getApellido());
-        info.put("contraseña", usuario.getPassword());
-        info.put("id", usuario.getId());
+		info.put("nombre", usuario.getNombre());
+		info.put("apellido", usuario.getApellido());
+		info.put("contraseña", usuario.getPassword());
+		info.put("id", usuario.getId());
 
-        ((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
+		((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(info);
 
-        return accessToken;
-    }
+		return accessToken;
+	}
 
 }
