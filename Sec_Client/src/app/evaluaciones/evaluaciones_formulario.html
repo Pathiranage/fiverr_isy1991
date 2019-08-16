@@ -28,11 +28,13 @@
 
         <!-- Here is the code that you have to modify -->
             <div>
-                <label>User asigned:</label>
+                <label>Usuario asignado:</label>
                 <select class="form-control" id="user" [(ngModel)]="evaluacion.user" name="user">
-                    <option *ngFor="let user of users" [value]="user.id">{{user.nombre}}</option>
+                    <option *ngFor="let user of users" [value]="user.id">{{user.nombre}} {{user.apellido}}</option>
                 </select>
             </div>
+
+            <br/>
 
 
             <div class="form-group">
@@ -40,6 +42,7 @@
                 <input type="file" class="form-control" id="inputCity" name="fichero_evaluacion"
                        (change)="onFileSelect($event)" placeholder="Añade fichero de evaluacion...">
             </div>
+
 
             <button type="submit" class="btn btn-primary" (click)="update()">Guardar</button>
         </form>

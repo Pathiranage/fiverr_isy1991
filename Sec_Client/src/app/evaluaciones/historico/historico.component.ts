@@ -1,12 +1,13 @@
-import { Component, OnInit,  ViewChild, Input } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {Evaluacion} from '../evaluacion';
 import {EvaluacionService} from '../evaluaciones.service';
 import {Router} from '@angular/router';
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, BaseChartDirective, Label } from 'ng2-charts';
+import {ChartDataSets, ChartOptions} from 'chart.js';
+import {BaseChartDirective, Color, Label} from 'ng2-charts';
 import {Charateristics} from '../evaluacion/charateristics';
-import { Eveproperties} from './eveproperties';
-import { Producto } from '../../productos/producto';
+import {Eveproperties} from './eveproperties';
+import {Producto} from '../../productos/producto';
+
 /*
 
 /**/
@@ -20,7 +21,7 @@ export class HistoricoComponent /*implements OnInit*/ {
 
 
   evaluaciones:Evaluacion[]=[];
-  evaluacion:any ={};
+    evaluacion: Evaluacion = new Evaluacion();
   charasteristics: Charateristics[] = [];
   productId:number;
   evalId:number;
@@ -83,7 +84,7 @@ export class HistoricoComponent /*implements OnInit*/ {
           console.log("createdat = " + this.eveprop[i].createAt);
          // this.eveprop[i].producto.version = this.evaluaciones[i].producto.version;
          this.eveprop[i].producto = new Producto();
-         this.eveprop[i].producto.version = this.evaluaciones[i].producto.version;
+            this.eveprop[i].version = this.evaluaciones[i].version;
           this.eveprop[i].producto.id = this.evaluaciones[i].producto.id;
            this.productname =this.evaluaciones[i].producto.nombre;
           if(this.eveprop[i].producto.id == this.productId){

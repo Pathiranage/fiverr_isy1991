@@ -126,21 +126,6 @@ export class EvaluacionesFormularioComponent implements OnInit {
         }
     }
 
-    /*
-        update():void{
-          this.empresaService.update(this.empresa).subscribe(empresa=>{
-            this.router.navigate(['/empresas'])
-          })
-        }
-
-        delete(producto: Producto): void{
-          this.productoService.delete(producto.id).subscribe(
-            response => {
-              this.empresa.productos=this.empresa.productos.filter(pro => pro !== producto)
-            }
-          )
-        }
-    */
     compararProducto(o1: Producto, o2: Producto) {
         return o1 == null || o2 == null ? false : o1.id == o2.id;
     }

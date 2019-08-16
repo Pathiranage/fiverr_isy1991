@@ -2,10 +2,12 @@
 
 </div>
 <div class="btn-group">
-    <button [routerLink]="['/evaluaciones/evaluacion/1']" class="btn btn-light" routerLinkActive="active"> Evaluación
+    <button [routerLink]="['/evaluaciones/resultados_generales', evaluacion.id]" class="btn btn-light"
+            routerLinkActive="active"> Evaluación
         del producto
     </button>&nbsp;
-    <button [routerLink]="['/evaluaciones/historico/1']" class="btn btn-light" type="button" routerLinkActive="active">
+    <button [routerLink]="['/evaluaciones/historico', evaluacion.id]" class="btn btn-light" routerLinkActive="active"
+            type="button">
         Histórico
     </button>&nbsp;
     <button type="button" class="btn btn-light" routerLinkActive="active" (click)="generarInforme(evaluacion.id)">
@@ -27,6 +29,7 @@
                 name="eval"><!--(change)="loadData()"-->
             <option *ngFor="let eval of evaluaciones"
                     [value]="eval.id">{{eval.createAt | date: 'M/d/yy, h:mm a'}}</option>
+
         </select>
     </div>
     <div class="row">
@@ -43,7 +46,7 @@
                 </thead>
                 <tbody>
                 <tr class="p-3 mb-2 bg-light text-dark">
-                    <td>{{version}}</td>
+                    <td>{{evaluacion.version}}</td>
                     <td>{{date | date: 'M/d/yy, h:mm a'}}</td>
                     <td align="center" [bgColor]="getBgColor(value)" class="valor" width="50" height="50"
                       ><font [color]="getTextColorCaracteristica(value)">{{value}}</font></td>

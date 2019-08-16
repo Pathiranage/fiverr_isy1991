@@ -1,9 +1,15 @@
 <div class="animated fadeIn fast">
 
     <div class="btn-group">
-      <button [routerLink]="['/evaluaciones/evaluacion/1']" class="btn btn-light" routerLinkActive="active"> Evaluación del producto</button>&nbsp;
-      <button [routerLink]="['/evaluaciones/historico/1']" class="btn btn-light" type="button" routerLinkActive="active">Histórico</button>&nbsp;
-      <button type="button" class="btn btn-light" routerLinkActive="active">Generar Informe</button>&nbsp;
+        <button [routerLink]="['/evaluaciones/resultados_generales', evaluacion.id]" class="btn btn-light"
+                routerLinkActive="active"> Evaluación del producto
+        </button>&nbsp;
+        <button [routerLink]="['/evaluaciones/historico', evaluacion.id]" class="btn btn-light"
+                routerLinkActive="active" type="button">Histórico
+        </button>&nbsp;
+        <button (click)="generarInforme(evaluacion.id)" class="btn btn-light" routerLinkActive="active" type="button">
+            Generar Informe
+        </button>&nbsp;
     </div>
 
     <br/><br/><br/>
@@ -33,7 +39,7 @@
             <!-- <td> <input type="checkbox"> &nbsp;{{evaluacion.fecha_evaluacion}} testing</td> -->
             <!-- <td>{{loadCharacter(evaluacion.id)}}</td> -->
             <td  align="center" *ngIf ="evaluacion.producto.id === productId"> &nbsp;{{evaluacion?.createAt | date: 'M/d/yy, h:mm a'}} </td>
-            <td  align="center" *ngIf ="evaluacion.producto.id === productId">{{evaluacion?.producto?.version}} </td>
+              <td *ngIf="evaluacion.producto.id === productId" align="center"> {{evaluacion?.version}} </td>
             <td width="50" height="50" align="center" *ngIf ="evaluacion.producto.id === productId" >{{evaluacion?.valor_ciberseguridad}}</td>
             <td width="50" height="50" align="center" *ngIf ="evaluacion.producto.id === productId" >{{evaluacion?.valor_cump}}</td>
             <td width="50" height="50" align="center" *ngIf ="evaluacion.producto.id === productId" >{{evaluacion?.valor_conf}}</td>

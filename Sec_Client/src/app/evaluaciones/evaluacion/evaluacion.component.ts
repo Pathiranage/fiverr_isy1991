@@ -24,6 +24,7 @@ export class EvaluacionComponent {
     nombre: any;
     date: any;
     value: any;
+    productId: number;
 
     mostrarcump = false;
     mostrarconf = false;
@@ -281,6 +282,7 @@ export class EvaluacionComponent {
         this.activatedRouter.params.subscribe(params => {
             this.fetchData(params['id']);
         });
+        this.productId = this._evaluacionService.getterProductId();
     }
 
     pid:number;
@@ -342,7 +344,7 @@ export class EvaluacionComponent {
         this.fetchData(this.selectedEval);
     }
 
-    
+
     private setRadioColorValue() {
         this.radarChartColors=[];
         this.radarChartColors.push(
