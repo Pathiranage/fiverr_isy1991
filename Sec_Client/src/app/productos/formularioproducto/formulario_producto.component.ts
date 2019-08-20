@@ -42,6 +42,7 @@ export class FormularioProductoComponent implements OnInit {
     }
 
     update(): void {
+        delete this.producto['evaluaciones'];
         this.productoService.update(this.producto).subscribe(producto => {
             this.router.navigate(['/productos']);
         });
