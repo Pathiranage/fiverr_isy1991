@@ -28,7 +28,7 @@ public class Evaluacion implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     private Producto producto;
 
-    @ManyToMany(mappedBy = "evaluaciones", cascade = CascadeType.MERGE)
+    @ManyToMany(mappedBy = "evaluaciones", cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     private List<Usuario> usuarios;
 
     @OneToOne(cascade = CascadeType.PERSIST)

@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("LossyEncoding")
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
@@ -48,7 +49,7 @@ public class ProductoRestController {
     }
 
 
-    // Devuelve el producto creado, recibirá el objeto producto en JSON
+    // Devuelve el producto creado, recibirï¿½ el objeto producto en JSON
     //	@Secured("ROLE_ADMIN")
     @PostMapping("/productos")
     @ResponseStatus(HttpStatus.CREATED)
@@ -109,7 +110,7 @@ public class ProductoRestController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        response.put("mensaje", "Producto actualizado con éxito");
+        response.put("mensaje", "Producto actualizado con ï¿½xito");
         response.put("empresas", productoUpdated);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
@@ -123,7 +124,7 @@ public class ProductoRestController {
         Map<String, Object> response = new HashMap<>();
         productoService.delete(id);
 
-        response.put("mensaje", "Producto eliminado con Éxito");
+        response.put("mensaje", "Producto eliminado con ï¿½xito");
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.OK);
 
     }
